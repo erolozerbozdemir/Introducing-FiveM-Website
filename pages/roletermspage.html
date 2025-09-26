@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing FiveM</title>
+
+    <style>
+            html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.div1 {
+    background-image: url(../Fotos/wp8012893.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+            .logo-link {
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        z-index: 10;
+        display: inline-block;
+        border-radius: 12px;
+        transition: background 0.2s;
+        padding: 4px;
+    }
+    .logo-link:hover {
+        background: #ff0077;
+    }
+    .logo-img {
+        height: 64px;
+        width: auto;
+        transition: filter 0.2s;
+        filter: brightness(1);
+    }
+    .logo-link:hover .logo-img {
+        filter: brightness(0.7) sepia(1) hue-rotate(320deg);
+    }
+ .menu-bar {
+            position: absolute;
+            top: 40px;
+            right: 80px;
+            display: flex;
+            gap: 24px;
+            z-index: 2;
+        }
+        .menu-buton {
+            background: rgba(255,255,255,0.15);
+            color: #ffffff;
+            border: none;
+            padding: 12px 32px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+        }
+        .menu-buton:hover {
+            background: #ff0077;
+            color: #ffffff;
+        }
+       .login-buton {
+                    background: snow;
+                    color: aqua;
+                    border: none;
+                    padding: 12px 32px;
+                    font-size: 1.1em;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: background 0.2s, color 0.2s;     
+        } 
+        .login-buton:hover {
+            background: aqua;
+            color: snow;
+        }
+
+        table {
+            margin-top: 120px;
+        }
+
+         .div2 {
+    background-image: url(../Fotos/pxfuel.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 1080px;
+    width: 100%;
+    position: relative;
+    }
+
+         
+     
+    </style>
+
+
+</head>
+<body>
+<div class="div1">
+
+    <a href="homepage.html" class="logo-link">
+        <img src="../fivemlogo.png" alt="FiveM Logo" class="logo-img">
+    </a>
+
+     <div class="menu-bar">
+        <a href="serverpage.html">
+        <button class="menu-buton">Server</button>
+        </a>
+        <a href="placespage.html">
+        <button class="menu-buton">Places</button>
+        </a>
+        <a href="vehiclespage.html">
+        <button class="menu-buton">Vehicles</button>
+        </a>
+        <a href="rolespage.html">
+        <button class="menu-buton">Roles</button>
+        </a>
+        <a href="roletermspage.html">
+        <button class="menu-buton">Role Terms</button>
+        </a>
+        <a href="aboutuspage.html">
+        <button class="menu-buton">About Us</button>
+        </a>
+        <a href="login.html">
+        <button class="login-buton">Log In</button>
+        </a>
+    </div>
+   
+<br><br><br><br><br>
+    <h1 style="text-align: center;
+              color: rgb(255, 255, 255);">Role Terms</h1>
+            <br><br> <br> <br>
+            <h1 style="text-align: left; margin-left: 100px; color: snow;">GTA V Roleplay (FiveM) is a game. We may sometimes</h1>
+            <h1 style="text-align: left; margin-left: 400px; color: snow;">engage in unrealistic movements and behaviors.</h1>
+            <br><br><br>
+            <h1 style="text-align: left; margin-left: 100px; color: snow;">There are certain rules and roleterms that help make</h1>
+            <h1 style="text-align: left; margin-left: 600px; color: snow;">roleplay as realistic as possible.</h1>
+              </div>
+</div>
+
+<div class="div2">
+<br><br>
+<h1 style="text-align: left; margin-left: 160px; color: aqua;">In Character (IC)</h1>
+<h2 style="text-align: left; margin-left: 80px; color: snow;">This means "in-character." It shouldn't have any connection to the real world. For example, if you're friends with someone in real life and haven't met them while playing a role,</h2>
+<h2 style="text-align: left; margin-left: 40px; color: snow;">you shouldn't call them by name when you run into each other on the street. This also causes a <ins>Metagame</ins> bug.</h2>
+<br><br><br><br>
+<h1 style="text-align: left; margin-left: 160px; color: aqua;">Out Of Character (OOC)</h1>
+<h2 style="text-align: left; margin-left: 80px; color: snow;">This includes events that are out of character. For example, someone dropped out mid-role or deliberately left the game. It's used to write things that aren't part of the role,</h2>
+<h2 style="text-align: left; margin-left: 40px; color: snow;">such as "/ooc Where did he go?"</h2>
+<br><br><br><br>
+<h1 style="text-align: left; margin-left: 160px; color: aqua;">Random DeathMatch (RDM)</h1>
+<h2 style="text-align: left; margin-left: 80px; color: snow;">Killing someone for no reason, without a role, or without someone having enough of a role to play.</h2>
+<h2 style="text-align: left; margin-left: 40px; color: yellow;">Examples of roles involving RDM</h2>
+<h2 style="text-align: left; margin-left: 75px; color: snow;">- Someone crashes into your car. If you kill them just because they tell you to "Drive slow!", that's RDM.</h2>
+
+</div>
+<script type="module" src="assets/firebase.js"></script>
+<script type="module" src="assets/auth-ui.js"></script>
+
+</body>
+</html>

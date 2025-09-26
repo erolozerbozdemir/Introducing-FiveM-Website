@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing FiveM</title>
+
+    <style>
+            /* ====== RESET & BASE ====== */
+:root{
+  --c-muted: rgba(255,255,255,.15);
+  --c-border: #ff0077;
+  --c-focus: aqua;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;overflow-x:hidden}
+
+/* ====== BACKDROP ====== */
+.div1{
+  background-image:url(../Fotos/wp8012893.jpg);
+  background-size:cover;background-position:center;
+  min-height:100vh;width:100%;position:relative
+}
+.logo-link{position:absolute;top:20px;left:40px;z-index:10;display:inline-block;border-radius:12px;padding:4px;transition:.2s}
+.logo-link:hover{background:#ff0077}
+.logo-img{height:64px;width:auto;transition:.2s;filter:brightness(1)}
+.logo-link:hover .logo-img{filter:brightness(.7) sepia(1) hue-rotate(320deg)}
+.menu-bar{position:absolute;top:40px;right:80px;display:flex;gap:24px;z-index:2}
+.menu-buton{background:var(--c-muted);color:#fff;border:none;padding:12px 32px;font-size:1.1em;border-radius:10px;cursor:pointer;font-weight:600;transition:.2s}
+.menu-buton:hover{background:#ff0077;color:#fff}
+.login-buton{background:#fff;color:aqua;border:none;padding:12px 32px;font-size:1.1em;border-radius:10px;cursor:pointer;font-weight:600;transition:.2s}
+.login-buton:hover{background:aqua;color:#fff}
+
+/* ====== FORM BOX ====== */
+.form-container{display:flex;justify-content:center;align-items:center;min-height:60vh}
+.form-box{background:rgba(0,0,0,.6);padding:24px 28px;border-radius:16px}
+form{color:#fff;font-size:20px;position:relative}
+
+/* Alanlar */
+form input[type="email"],
+form input[type="password"],
+form input.pw-input {
+  width:480px;
+  max-width:82vw;
+  padding:10px 14px;
+  border:1.5px solid var(--c-border);
+  border-radius:8px;
+  background:var(--c-muted);
+  color:#fff;
+  font-size:1em;
+  outline:0;
+  transition:border-color .25s, box-shadow .25s, background .25s;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+/* Göz için boşluk */
+form input[type="password"],
+form input.pw-input {
+  padding-right:48px;
+}
+
+/* Focus halleri */
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input.pw-input:focus {
+  border-color:var(--c-focus);
+  box-shadow:0 0 2px rgba(0,255,255,.2);
+  background:rgba(255,255,255,.25);
+  color:#222;
+}
+
+
+/* Giriş butonu */
+.login{
+  background:aqua;color:#fff;border:none;border-radius:10px;
+  padding:10px 24px;font-weight:700;font-size:16px;cursor:pointer;
+  margin:16px 0;transition:.2s
+}
+.login:hover{background:#fff;color:aqua}
+
+/* Şifre gözü */
+.eye-btn{
+  position:absolute;right:12px;top:calc(50% + 12px); /* password satırına hizalı */
+  width:28px;height:28px;display:grid;place-items:center;
+  transform:translateY(-50%);border:0;background:transparent;color:#fff;cursor:pointer;z-index:1
+}
+
+/* küçük ekran */
+@media (max-width:560px){
+  .eye-btn{right:8px}
+  form input[type="password"]{padding-right:44px}
+}
+.glow-btn{
+  background:linear-gradient(135deg,#7d2ae8,#9b4dff);color:#fff;border:none;border-radius:50px;
+  padding:15px 40px;font:700 20px/1 'Poppins',sans-serif;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;margin:32px auto 0 auto;box-shadow:0 0 15px rgba(155,77,255,.5);transition:.3s
+}
+.glow-btn:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(155,77,255,.8)}
+.glow-btn:active{transform:scale(.96)}
+    </style>
+
+
+</head>
+<body>
+<div class="div1">
+
+    <a href="homepage.html" class="logo-link">
+        <img src="../fivemlogo.png" alt="FiveM Logo" class="logo-img">
+    </a>
+
+     <div class="menu-bar">
+        <a href="serverpage.html">
+        <button class="menu-buton">Server</button>
+        </a>
+        <a href="placespage.html">
+        <button class="menu-buton">Places</button>
+        </a>
+        <a href="vehiclespage.html">
+        <button class="menu-buton">Vehicles</button>
+        </a>
+        <a href="rolespage.html">
+        <button class="menu-buton">Roles</button>
+        </a>
+        <a href="roletermspage.html">
+        <button class="menu-buton">Role Terms</button>
+        </a>
+        <a href="aboutuspage.html">
+        <button class="menu-buton">About Us</button>
+        </a>
+        <a href="login.html">
+        <button class="login-buton">Log In</button>
+        </a>
+    </div>
+   
+<br><br><br><br><br>
+    <h1 style="text-align: center;
+              color: rgb(255, 255, 255);">Log In</h1>
+   
+   <div class="form-container" style="display: flex; justify-content: center; align-items: center; height: 60vh;">
+    <div class="form-box" style="background: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 10px;">
+ <form id="loginForm" method="post" action="javascript:void(0)" novalidate>
+<label for="email">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+<input type="email" name="email" id="email" placeholder="Enter your Email" required>
+
+<br> <br>
+
+<label for="sifre">Password :</label>
+<input type="password" name="sifre" id="sifre" placeholder="Enter your Password"
+maxlength="16" minlength="8" required>
+<br><br>
+
+<button type="submit" class="glow-btn">Log In</button>
+<br>
+<p>If you do not have an account, you can <a href="signup.html" style="color: aqua;">sign up</a>. </p>  
+</form>
+</div>
+                    </div>
+              </div>
+</div>
+
+<script>
+/* Login sayfası: göz ikonunu password kutusunun İÇİNE yerleştir ve hizala */
+(function () {
+  const pwd = document.querySelector('input[type="password"]#sifre') || document.querySelector('input[type="password"]');
+  const row = pwd?.closest('.form-row') || pwd?.parentElement;
+  if (!pwd || !row) return;
+  pwd.classList.add('pw-input');
+
+
+  // kapsayıcıyı referans yap ve sağ içe yer aç
+  if (getComputedStyle(row).position === 'static') row.style.position = 'relative';
+  pwd.style.boxSizing = 'border-box';
+  pwd.style.paddingRight = '48px';
+
+  // email satırıyla aynı hizaya gelsin (gerekirse)
+  const email = document.querySelector('input[type="email"]#email') || document.querySelector('input[type="email"]');
+  if (email) {
+    email.style.width  = pwd.offsetWidth ? (pwd.offsetWidth + 'px') : '100%';
+  }
+
+  // göz butonu
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  Object.assign(btn.style, {
+    position: 'absolute',
+    right: '12px',
+    top: 'calc(50% - 39px)',
+    transform: 'translateY(-50%)',
+    width: '28px',
+    height: '28px',
+    display: 'grid',
+    placeItems: 'center',
+    border: '0',
+    background: 'transparent',
+    color: '#fff',
+    cursor: 'pointer',
+    lineHeight: '1',
+    zIndex: '1'
+  });
+  btn.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" stroke="currentColor" stroke-width="2" fill="none"/>
+      <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+    </svg>
+  `;
+  row.appendChild(btn);
+
+  let visible = false;
+  const OPEN = btn.innerHTML;
+  const CLOSED = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M3 3l18 18" stroke="currentColor" stroke-width="2"/>
+      <path d="M2 12s3.5-6 10-6c2.1 0 3.9.6 5.4 1.5M22 12s-3.5 6-10 6c-2.1 0-3.9-.6-5.4-1.5" stroke="currentColor" stroke-width="2" fill="none"/>
+      <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+    </svg>
+  `;
+
+  const refresh = () => {
+    btn.style.display = pwd.value ? 'grid' : 'none';
+    if (!pwd.value && visible) { visible = false; pwd.type = 'password'; btn.innerHTML = OPEN; }
+  };
+  pwd.addEventListener('input', refresh);
+  pwd.addEventListener('focus', refresh);
+  pwd.addEventListener('blur',  refresh);
+  refresh();
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    visible = !visible;
+    pwd.type = visible ? 'text' : 'password';
+    btn.innerHTML = visible ? CLOSED : OPEN;
+    pwd.focus();
+  });
+})(); 
+</script>
+
+<script type="module" src="assets/firebase.js"></script>
+<script type="module" src="assets/login.js"></script>
+<script type="module" src="assets/auth-ui.js"></script>
+</body>
+</html>

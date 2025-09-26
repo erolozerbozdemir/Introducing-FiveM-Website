@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing FiveM</title>
+
+    <style>/* ====== RESET & BASE ====== */
+:root{
+  --c-bg: rgba(0,0,0,.6);
+  --c-text: #fff;
+  --c-muted: rgba(255,255,255,.15);
+  --c-border: #ff0077;     /* normal kenar */
+  --c-focus: aqua;         /* focus kenar/parlama */
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;overflow-x:hidden}
+body{background:#1a1a1a}
+
+/* ====== HERO / HEADER ====== */
+.div1{
+  background-image:url(../Fotos/wp8012893.jpg);
+  background-size:cover;background-position:center;
+  min-height:100vh;width:100%;position:relative
+}
+.logo-link{position:absolute;top:20px;left:40px;z-index:10;display:inline-block;border-radius:12px;padding:4px;transition:.2s}
+.logo-link:hover{background:#ff0077}
+.logo-img{height:64px;width:auto;transition:.2s;filter:brightness(1)}
+.logo-link:hover .logo-img{filter:brightness(.7) sepia(1) hue-rotate(320deg)}
+.menu-bar{position:absolute;top:40px;right:80px;display:flex;gap:24px;z-index:2}
+.menu-buton,.login-buton{
+  border:none;border-radius:10px;cursor:pointer;font-weight:600;font-size:1.1em;
+  padding:12px 32px;transition:.2s
+}
+.menu-buton{background:var(--c-muted);color:#fff}
+.menu-buton:hover{background:#ff0077;color:#fff}
+.login-buton{background:#fff;color:aqua}
+.login-buton:hover{background:aqua;color:#fff}
+
+/* ====== FORM WRAPPER ====== */
+.form{
+  background:var(--c-bg);color:var(--c-text);
+  width:1100px;min-height:520px;margin:40px auto 0 auto;
+  padding:32px 40px;border-radius:16px;display:flex;flex-direction:column;justify-content:center
+}
+
+/* 3 kolon grid */
+.form-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px 48px;align-items:start}
+
+/* Her satır: göz butonu için referans */
+.form-row{display:flex;flex-direction:column;margin:0;position:relative;overflow:hidden;position:relative}
+.form-row label{margin-bottom:6px;color:#fff;font-weight:500}
+.form-row .hint{font-size:.95em;color:#ff0077}
+
+/* ====== ALANLAR: input/select/textarea ====== */
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"],
+.form input[type="tel"],
+.form input[type="number"],
+.form select,
+.form textarea{
+  width:100%;
+  padding:10px 14px;
+  border:1.5px solid var(--c-border);
+  border-radius:8px;
+  background:var(--c-muted);
+  color:#fff;font-size:1em;
+  outline:0;transition:border-color .2s, box-shadow .2s, background .2s;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.form input[type="password"]{padding-right:48px} /* göz için yer */
+.form input:focus,
+.form select:focus,
+.form textarea:focus{
+  border-color:var(--c-focus);
+  box-shadow:0 0 0 2px rgba(0,255,255,.2);
+  background:rgba(255,255,255,.25);color:#222
+}
+
+/* ====== CHECKBOX SATIRI ====== */
+.form-row.checkbox-row{
+  display:grid;grid-template-columns:auto 32px;
+  grid-auto-rows:minmax(32px,auto);column-gap:16px;row-gap:12px;align-items:center;grid-column:span 1
+}
+.form-row.checkbox-row label{margin:0;white-space:nowrap}
+.form-row.checkbox-row input[type="checkbox"]{width:24px;height:24px;accent-color:#ff0077}
+
+/* ====== FILE INPUT (temel görünüm) ====== */
+.form input[type="file"]{
+  padding:8px 12px;background:var(--c-muted);
+  border:1.5px solid var(--c-border);border-radius:8px;color:#fff
+}
+
+/* ====== SUBMIT ====== */
+.glow-btn{
+  background:linear-gradient(135deg,#7d2ae8,#9b4dff);color:#fff;border:none;border-radius:50px;
+  padding:15px 40px;font:700 20px/1 'Poppins',sans-serif;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;margin:32px auto 0 auto;box-shadow:0 0 15px rgba(155,77,255,.5);transition:.3s
+}
+.glow-btn:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(155,77,255,.8)}
+.glow-btn:active{transform:scale(.96)}
+
+/* ====== ŞİFRE GÖZÜ (JS butonu) ====== */
+.eye-btn{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  width:28px;height:28px;display:grid;place-items:center;
+  border:0;background:transparent;color:#fff;cursor:pointer;line-height:1;z-index:1
+}
+
+/* küçük ekran ayarı */
+@media (max-width: 900px){
+  .form{width:92%}
+  .form-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 560px){
+  .form-grid{grid-template-columns:1fr}
+  .eye-btn{right:8px}
+  .form input[type="password"]{padding-right:44px}
+}
+
+    </style>
+
+
+</head>
+<body>
+<div class="div1">
+
+    <a href="homepage.html" class="logo-link">
+        <img src="../fivemlogo.png" alt="FiveM Logo" class="logo-img">
+    </a>
+
+     <div class="menu-bar">
+        <a href="serverpage.html">
+        <button class="menu-buton">Server</button>
+        </a>
+        <a href="placespage.html">
+        <button class="menu-buton">Places</button>
+        </a>
+        <a href="vehiclespage.html">
+        <button class="menu-buton">Vehicles</button>
+        </a>
+        <a href="rolespage.html">
+        <button class="menu-buton">Roles</button>
+        </a>
+        <a href="roletermspage.html">
+        <button class="menu-buton">Role Terms</button>
+        </a>
+        <a href="aboutuspage.html">
+        <button class="menu-buton">About Us</button>
+        </a>
+        <a href="login.html">
+        <button class="login-buton">Log In</button>
+        </a>
+    </div>
+   
+<br><br><br><br><br>
+    <h1 style="text-align: center;
+              color: rgb(255, 255, 255);">Sign Up</h1>
+            
+<div class="form">
+    <form id="signupForm" method="post" action="javascript:void(0)" novalidate>
+        <div class="form-grid">
+            <div class="form-row">
+                <label for="isim">Name :</label>
+                <input type="text" name="isim" id="isim" placeholder="Enter your Name" required>
+            </div>
+            <div class="form-row">
+                <label for="email">Email :</label>
+                <input type="email" name="email" id="email" placeholder="Enter your Email" required>
+            </div>
+            <div class="form-row">
+                <label for="rol">Which Type of Role?</label>
+                <select name="rol" id="rol">
+                    <option value="legal">Legal Role</option>
+                    <option value="illegal">İllegal Role</option>
+                    <option value="memur">Civil Servant (ex.LSMD, LSPD)</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="soyisim">Surname :</label>
+                <input type="text" name="soyisim" id="soyisim" placeholder="Enter your Surname" required>
+            </div>
+            <div class="form-row">
+                <label for="sifre">Password :</label>
+                <input type="password" name="sifre" id="sifre" placeholder="Enter your Password" maxlength="16" minlength="8" required>
+            </div>
+            <div class="form-row">
+                <label>Send Character Story as PDF or DOCX:</label>
+                <input type="file" accept=".pdf" required>
+            </div>
+            <div class="form-row">
+    <label for="birthday-day">Birthday (Day/Month/Year): <br>
+        <span style="font-size:0.95em; color:#ff0077;">You must be over 18 years old.</span>
+    </label>
+    <div style="display: flex; gap: 12px;">
+       <input type="number" id="birthday-day" name="birthday-day" placeholder="Day" min="1" max="31" required>
+<input type="number" id="birthday-month" name="birthday-month" placeholder="Month" min="1" max="12" required>
+<input type="number" id="birthday-year" name="birthday-year" placeholder="Year" min="1900" max="2007" required>
+    </div>
+</div>
+           <div class="form-row">
+                <label for="telefon">Phone Number :</label>
+                <input type="tel" name="telefon" id="telefon" placeholder="Enter your Phone Number" required>
+            </div>
+            <div class="form-row checkbox-row">
+    <label for="roleplay">Do you actively play roleplay?</label>
+    <input type="checkbox" id="roleplay" name="roleplay">
+
+    <label for="checkbox2">I have read the <a href="https://www.resmigazete.gov.tr/eskiler/2018/03/20180310-5.htm" target="_blank">KVKK Text</a>, I agree.</label>
+    <input type="checkbox" id="checkbox2" name="checkbox2" required>
+
+    <label for="checkbox3">I approve of receiving Ads and News.</label>
+    <input type="checkbox" id="checkbox3" name="checkbox3" required>
+</div>
+        </div>
+        <button type="submit" id="signupBtn" class="glow-btn">SIGN UP</button>
+    </form>
+</div>
+              </div>
+</div>
+
+
+<script>
+/* Signup sayfası: göz ikonunu password kutusunun İÇİNE yerleştir, biraz aşağı kaydır */
+(function () {
+  const pwd = document.querySelector('input[type="password"]#sifre') || document.querySelector('input[type="password"]');
+  const row = pwd?.closest('.form-row') || pwd?.parentElement;
+  if (!pwd || !row) return;
+
+  if (getComputedStyle(row).position === 'static') row.style.position = 'relative';
+  pwd.style.boxSizing = 'border-box';
+  pwd.style.paddingRight = '48px';
+
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  Object.assign(btn.style, {
+    position: 'absolute',
+    right: '12px',
+    top: 'calc(50% + 12px)',   // login'den biraz daha aşağı
+    transform: 'translateY(-50%)',
+    width: '28px',
+    height: '28px',
+    display: 'grid',
+    placeItems: 'center',
+    border: '0',
+    background: 'transparent',
+    color: '#fff',
+    cursor: 'pointer',
+    lineHeight: '1',
+    zIndex: '1'
+  });
+  btn.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" stroke="currentColor" stroke-width="2" fill="none"/>
+      <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+    </svg>
+  `;
+  row.appendChild(btn);
+
+  let visible = false;
+  const OPEN = btn.innerHTML;
+  const CLOSED = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M3 3l18 18" stroke="currentColor" stroke-width="2"/>
+      <path d="M2 12s3.5-6 10-6c2.1 0 3.9.6 5.4 1.5M22 12s-3.5 6-10 6c-2.1 0-3.9-.6-5.4-1.5" stroke="currentColor" stroke-width="2" fill="none"/>
+      <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+    </svg>
+  `;
+
+  const refresh = () => {
+    btn.style.display = pwd.value ? 'grid' : 'none';
+    if (!pwd.value && visible) { visible = false; pwd.type = 'password'; btn.innerHTML = OPEN; }
+  };
+  pwd.addEventListener('input', refresh);
+  pwd.addEventListener('focus', refresh);
+  pwd.addEventListener('blur',  refresh);
+  refresh();
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    visible = !visible;
+    pwd.type = visible ? 'text' : 'password';
+    btn.innerHTML = visible ? CLOSED : OPEN;
+    pwd.focus();
+  });
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+<script type="module" src="assets/firebase.js"></script>
+<script type="module" src="assets/signup.js"></script>
+<script type="module" src="assets/auth-ui.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing FiveM</title>
+
+    <style>
+            html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.div1 {
+    background-image: url(../Fotos/wp8012893.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+            .logo-link {
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        z-index: 10;
+        display: inline-block;
+        border-radius: 12px;
+        transition: background 0.2s;
+        padding: 4px;
+    }
+    .logo-link:hover {
+        background: #ff0077;
+    }
+    .logo-img {
+        height: 64px;
+        width: auto;
+        transition: filter 0.2s;
+        filter: brightness(1);
+    }
+    .logo-link:hover .logo-img {
+        filter: brightness(0.7) sepia(1) hue-rotate(320deg);
+    }
+ .menu-bar {
+            position: absolute;
+            top: 40px;
+            right: 80px;
+            display: flex;
+            gap: 24px;
+            z-index: 2;
+        }
+        .menu-buton {
+            background: rgba(255,255,255,0.15);
+            color: #ffffff;
+            border: none;
+            padding: 12px 32px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+        }
+        .menu-buton:hover {
+            background: #ff0077;
+            color: #ffffff;
+        }
+       .login-buton {
+                    background: snow;
+                    color: aqua;
+                    border: none;
+                    padding: 12px 32px;
+                    font-size: 1.1em;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: background 0.2s, color 0.2s;     
+        } 
+        .login-buton:hover {
+            background: aqua;
+            color: snow;
+        }
+
+        table {
+            margin-top: 120px;
+        }
+
+     .div2 {
+    background-image: url(../Fotos/pxfuel.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 1080px;
+    width: 100%;
+    position: relative;
+}
+     
+.div3 {
+    background-image: url(../Fotos/pxfuel.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 1080px;
+    width: 100%;
+    position: relative;
+}
+   /* Modal arka planı */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+/* Büyütülmüş resim */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+/* Kapatma butonu */
+.close {
+  position: absolute;
+  top: 30px;
+  right: 45px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #ff0077;
+}
+
+#caption {
+  margin: 15px auto;
+  text-align: center;
+  color: #ccc;
+  font-size: 18px;
+}
+
+.places-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 48px; /* Resimler arası boşluk */
+    padding: 60px 48px; /* Kenar boşlukları */
+}
+.place-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0,0,0,0.45);
+    border-radius: 18px;
+    padding: 24px 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    width: 340px;
+}
+.place-item h2 {
+    color: snow;
+    margin-bottom: 18px;
+    min-height: 48px; /* Başlık için boşluk */
+    text-align: center;
+}
+.place-img {
+    width: 300px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+@media (max-width: 1100px) {
+    .places-row {
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+    }
+}
+.place-img {
+    width: 300px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    cursor: zoom-in; /* 🔍 imleç efekti */
+}
+
+
+    </style>
+
+
+</head>
+<body>
+<div class="div1">
+
+    <a href="homepage.html" class="logo-link">
+        <img src="../fivemlogo.png" alt="FiveM Logo" class="logo-img">
+    </a>
+
+     <div class="menu-bar">
+        <a href="serverpage.html">
+        <button class="menu-buton">Server</button>
+        </a>
+        <a href="placespage.html">
+        <button class="menu-buton">Places</button>
+        </a>
+        <a href="vehiclespage.html">
+        <button class="menu-buton">Vehicles</button>
+        </a>
+        <a href="rolespage.html">
+        <button class="menu-buton">Roles</button>
+        </a>
+        <a href="roletermspage.html">
+        <button class="menu-buton">Role Terms</button>
+        </a>
+        <a href="aboutuspage.html">
+        <button class="menu-buton">About Us</button>
+        </a>
+        <a href="login.html">
+        <button class="login-buton">Log In</button>
+        </a>
+    </div>
+   
+<br><br><br><br><br>
+    <h1 style="text-align: center;
+              color: rgb(255, 255, 255);">Places</h1>
+            <br><br> <br> <br>
+            <h1 style="text-align: left; margin-left: 40px; color: snow;">Most GTA 5 roleplay servers have safe zones,</h1>
+            <h1 style="text-align: left; margin-left: 40px; color: snow;">community zones, and profession zones.</h1>
+            <h1 style="text-align: left; margin-left: 40px; color: snow;">Additionally, illegal profession areas are red zones and yellow zones.</h1>
+<br>
+<ul style="list-style-type: square; color: snow;
+text-align: left ; margin-left: 120px;">
+              <li><h2 style="text-align: left; margin-left: 80px; color: snow;">Red zones are areas where <ins>RDM (Random Death Match)</ins> is allowed.</h2></li>
+              <li><h2 style="text-align: left; margin-left: 80px; color: snow;">Yellow areas are places where the <ins>AGGRESSIVE</ins> are free.</h2></li>  
+</ul>             
+                </div>
+</div>
+
+<div class="div2">
+    <br><br><br><br>
+    <h1 style="text-align: center;
+              color: rgb(255, 255, 255);">Safe Zones</h1>
+    <div class="places-row">
+        <div class="place-item">
+            <h2>Los Santos Police Department (LSPD)</h2>
+            <img src="../Fotos/lspd.jpg" alt="Los Santos Police Department (LSPD)" class="place-img">
+        </div>
+        <div class="place-item">
+            <h2>Los Santos Medical Department (LSMD)</h2>
+            <img src="../Fotos/lsmd.png" alt="Los Santos Medical Department (LSMD)" class="place-img">
+        </div>
+        <div class="place-item">
+            <h2>Los Santos Sheriff Department (LSSD)</h2>
+            <img src="../Fotos/sherif.jpg" alt="Los Santos Sheriff Department (LSSD)" class="place-img">
+        </div>
+    </div>
+    <br><br><br>
+    <h1 style="text-align: center;
+              color: rgb(255, 255, 255);">Community Zones</h1>
+    <div class="places-row">
+        <div class="place-item">
+            <h2>Del Perro Pier</h2>
+            <img src="../Fotos/delperropier.jpg" alt="Del Perro Pier" class="place-img">
+        </div>
+        <div class="place-item">
+            <h2>Motel</h2>
+            <img src="../Fotos/motel.png" alt="Motel" class="place-img">
+        </div>
+        <div class="place-item">
+            <h2>Gallery</h2>
+            <img src="../Fotos/gallery.png" alt="Gallery" class="place-img">
+        </div>
+    </div>
+    </div>
+
+<div class="div3">
+<br><br><br><br>
+    <h1 style="text-align: center;
+              color: rgb(255, 255, 255);">Legal Profession Areas</h1>
+    <div class="places-row">
+        <div class="place-item">
+            <h2>Mine</h2>
+            <img src="../Fotos/mine.jpg" alt="Mine" class="place-img">
+        </div>
+        <div class="place-item">
+            <h2>Field</h2>
+            <img src="../Fotos/field.png" alt="Field" class="place-img">
+        </div>
+        <div class="place-item">
+            <h2>Chumash Plaza</h2>
+            <img src="../Fotos/chumash.jpg" alt="Chumash Plaza" class="place-img">
+        </div>
+    </div>
+    <br><br><br>
+    <h1 style="text-align: center;
+              color: rgb(255, 255, 255);">Illegal Profession Areas</h1>
+    <div class="places-row">
+        <div class="place-item">
+            <h2>Weed Farm</h2>
+            <img src="../Fotos/weedfarm.jpg" alt="Weed Farm" class="place-img">
+        </div>
+        <div class="place-item">
+            <h2>Wine Estate</h2>
+            <img src="../Fotos/vine.jpg" alt="Wine Estate" class="place-img">
+        </div>
+        <div class="place-item">
+            <h2>Cayo Perico</h2>
+            <img src="../Fotos/cayoperico.png" alt="Cayo Perico" class="place-img">
+        </div>
+    </div>
+</div>
+
+<div class="div3">
+<br><br><br><br><br>
+    <h1 style="text-align: center;
+              color: rgb(255, 255, 255);">Red Zone and Yellow Zone</h1>
+            <br><br> <br> <br>
+            <h1 style="text-align: left; margin-left: 40px; color: snow;">Cayo Perico is a <ins>Red Zone</ins></h1>      
+            <h1 style="text-align: left; margin-left: 40px; color: snow;">Other illegal profession areas are <ins>Yellow Zones</ins>.</h1>
+
+            <div class="places-row">
+        <div class="place-item">
+            <h2>Red Zone</h2>
+            <img src="../Fotos/redzone.png" alt="Cayo Perico" class="place-img">
+        </div>
+        <div class="place-item">
+            <h2>All Map with Other Zones</h2>
+            <img src="../Fotos/newmap.png" alt="Map" class="place-img">
+        </div>
+</div>
+
+
+
+
+<div id="imgModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+  <div id="caption"></div>
+</div>
+<script>
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const captionText = document.getElementById("caption");
+  const span = document.getElementsByClassName("close")[0];
+
+  document.querySelectorAll('.place-img').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+      captionText.innerHTML = img.alt;
+    });
+  });
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  modal.onclick = function(e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+<script type="module" src="assets/firebase.js"></script>
+<script type="module" src="assets/auth-ui.js"></script>
+</body>
+</html>
