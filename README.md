@@ -57,12 +57,13 @@ It includes **user authentication (sign up / log in)**, **Firestore integration*
    Copy your `firebaseConfig` object and paste it into `firebase.js`:
    ```javascript
    const firebaseConfig = {
-     apiKey: "YOUR_API_KEY",
-     authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-     projectId: "YOUR_PROJECT_ID",
-     storageBucket: "YOUR_PROJECT_ID.appspot.com",
-     messagingSenderId: "YOUR_SENDER_ID",
-     appId: "YOUR_APP_ID"
+     apiKey: "AIzaSyCHKEClTY9joDTNPH_wQjhDQJ5IZWQEtIg",
+     authDomain: "introducing-fivem.firebaseapp.com",
+     projectId: "introducing-fivem",
+     storageBucket: "introducing-fivem.firebasestorage.app",
+     messagingSenderId: "923623657468",
+     appId: "1:923623657468:web:62207692aee728cc25ec79",
+     measurementId: "G-N76B0WKL6V"
    };
    ```
 
